@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduTech Dash</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>EduTech Dash – Painel Escolar Interativo</h1>
+  </header>
+
+  <main class="container">
+    <!-- 1. Formulário de Cadastro/Lançamento -->
+    <section class="card" id="sec-form">
+      <h2>Cadastro / Lançamento de Estudante</h2>
+
+      <form id="form-estudante">
+        <div class="form-group">
+          <label for="nome">Nome do Aluno</label>
+          <input type="text" id="nome" required />
+        </div>
+
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="nota1">Nota 1</label>
+            <input type="number" id="nota1" step="0.1" min="0" max="10" required />
+          </div>
+          <div class="form-group">
+            <label for="nota2">Nota 2</label>
+            <input type="number" id="nota2" step="0.1" min="0" max="10" required />
+          </div>
+          <div class="form-group">
+            <label for="nota3">Nota 3</label>
+            <input type="number" id="nota3" step="0.1" min="0" max="10" required />
+          </div>
+        </div>
+
+        <div class="form-inline">
+          <div class="form-group">
+            <label for="presencas">Total de Presenças</label>
+            <input type="number" id="presencas" min="0" required />
+          </div>
+          <div class="form-group">
+            <label for="aulasTotais">Aulas Totais</label>
+            <input type="number" id="aulasTotais" min="1" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone do Responsável</label>
+          <input type="tel" id="telefone" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail do Responsável</label>
+          <input type="email" id="email" />
+        </div>
+
+        <div id="alerta-erro" class="alert hidden"></div>
+
+        <button type="submit" id="btn-cadastrar">Cadastrar Estudante</button>
+      </form>
+    </section>
+
+    <!-- 2. Painel de Listagem e Filtros -->
+    <section class="card" id="sec-listagem">
+      <h2>Painel de Listagem e Filtros</h2>
+
+      <div class="filtros">
+        <div class="form-group">
+          <label for="busca-nome">Busca por nome</label>
+          <input type="text" id="busca-nome" placeholder="Digite parte do nome..." />
+        </div>
+
+        <div class="form-group">
+          <label for="filtro-status">Filtrar por situação</label>
+          <select id="filtro-status">
+            <option value="">Todos</option>
+            <option value="APROVADO">Aprovado</option>
+            <option value="RECUPERACAO">Recuperação</option>
+            <option value="REPROVADO">Reprovado</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+  <table id="tabela-alunos">
+        <thead>
+          <tr>
+            <th>Aluno</th>
+            <th>Média</th>
+            <th>Frequência</th>
+            <th>Situação</th>
+            <th>Conceito</th>
+            <th>Telefone Resp.</th>
+            <th>E-mail Resp.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- linhas geradas dinamicamente -->
+        </tbody>
+      </table>
+      <p class="hint">Clique em um aluno na tabela para selecioná-lo na Central de Desafios.</p>
+    </section>
+
+    <!-- 3. Central de Desafios (Gamificação) -->
+    <section class="card" id="sec-gamificacao">
+      <h2>Central de Desafios</h2>
+
+      <div id="aluno-selecionado">
+        <strong>Aluno selecionado:</strong> <span id="nome-selecionado">nenhum</span>
+        </table>
+      </div>
+
+      <div id="info-media">
+        <strong>Média atual:</strong> <span id="media-selecionada">-</span>
+      </div>
+
+      <div class="desafio">
+        <p><strong>Mini Desafio Matemático:</strong> acerte a conta para ganhar +0.5 ponto de bônus na média.</p>
+        <div id="pergunta-desafio"></div>
+
+        <div class="form-inline">
+          <input type="number" id="resposta-desafio" placeholder="Sua resposta" />
+          <button id="btn-verificar-desafio">Responder</button>
+        </div>
+
+        <div id="feedback-desafio" class="feedback"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

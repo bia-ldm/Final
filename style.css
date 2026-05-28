@@ -1,0 +1,208 @@
+/* -----------------------------------------------------------
+   RESET E BASE
+----------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #eef1f7;
+  color: #222;
+}
+
+/* -----------------------------------------------------------
+   HEADER
+----------------------------------------------------------- */
+
+header {
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: #fff;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------
+   LAYOUT PRINCIPAL
+----------------------------------------------------------- */
+
+.container {
+  display: grid;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* -----------------------------------------------------------
+   CARDS
+----------------------------------------------------------- */
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* -----------------------------------------------------------
+   FORMULÁRIO
+----------------------------------------------------------- */
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.form-inline {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #3f51b5;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #303f9f;
+}
+
+/* -----------------------------------------------------------
+   ALERTA DE ERRO
+----------------------------------------------------------- */
+
+.alert {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffebee;
+  color: #b71c1c;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* -----------------------------------------------------------
+   TABELA
+----------------------------------------------------------- */
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#tabela-alunos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 700px; /* força rolagem no mobile */
+}
+
+#tabela-alunos th,
+#tabela-alunos td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#tabela-alunos thead {
+  background: #e8eaf6;
+  font-weight: 600;
+}
+
+#tabela-alunos tbody tr {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#tabela-alunos tbody tr:hover {
+  background: #e3f2fd;
+}
+
+/* -----------------------------------------------------------
+   GAMIFICAÇÃO
+----------------------------------------------------------- */
+
+.desafio {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+}
+
+.feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.feedback.ok {
+  color: #1b5e20;
+}
+
+.feedback.erro {
+  color: #b71c1c;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVIDADE — CELULARES PEQUENOS
+----------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #tabela-alunos td,
+  #tabela-alunos th {
+    padding: 8px;
+  }
+}
