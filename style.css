@@ -1,41 +1,46 @@
-
+/* -----------------------------------------------------------
+   RESET E BASE
+----------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f6ff;
+  color: #222;
+  overflow-x: hidden;
 }
 
 :root {
   --cor-primaria: #ff7a1a; /* laranja vibrante */
   --cor-primaria-escura: #e0660f;
   --cor-secundaria: #1f6fff; /* azul forte */
+  --cor-secundaria-escura: #1552c0;
   --cor-secundaria-clara: #e3edff;
   --cor-card: #ffffff;
   --cor-borda: #e0e0f0;
-  --cor-fundo: #f5f6ff;
-  --cor-texto: #222;
 }
 
-body {
-  margin: 0;
-  background: var(--cor-fundo);
-  color: var(--cor-texto);
-}
-
-
+/* -----------------------------------------------------------
+   HEADER
+----------------------------------------------------------- */
 
 header {
   background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
   color: #fff;
-  padding: 16px 20px;
+  padding: 18px 22px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.header-left h1 {
+header h1 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 
@@ -46,22 +51,19 @@ header {
 
 .btn-icon {
   border: none;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.18);
   color: #fff;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, background 0.2s ease;
+  font-size: 1.2rem;
+  transition: 0.2s ease;
 }
 
 .btn-icon:hover {
+  background: rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.25);
 }
 
 /* -----------------------------------------------------------
@@ -82,489 +84,4 @@ header {
 .card {
   background: var(--cor-card);
   border-radius: 16px;
-  padding: 18px 18px 20px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--cor-borda);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-}
-
-h2 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--cor-secundaria);
-}
-
-/* -----------------------------------------------------------
-   FORMULÁRIO
------------------------------------------------------------ */
-
-.form-group {
-  margin-bottom: 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--cor-borda);
-  font-size: 0.95rem;
-  background: #fff;
-}
-
-.form-inline {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btn-primary {
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: none;
-  background: var(--cor-primaria);
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-top: 10px;
-  transition: background 0.2s ease, transform 0.15s ease;
-}
-
-.btn-primary:hover {
-  background: var(--cor-primaria-escura);
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: none;
-  background: var(--cor-secundaria);
-  color: #fff;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-top: 8px;
-  transition: background 0.2s ease, transform 0.15s ease;
-}
-
-.btn-secondary:hover {
-  background: #1552c0;
-  transform: translateY(-1px);
-}
-
-
-.alert {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  background: #ffe6e6;
-  color: #b71c1c;
-  font-size: 0.9rem;
-}
-
-.hidden {
-  display: none;
-}
-
-/* -----------------------------------------------------------
-   FILTROS E TABELA
------------------------------------------------------------ */
-
-.filtros {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.table-wrapper {
-  overflow-x: auto;
-  border-radius: 10px;
-  border: 1px solid var(--cor-borda);
-  margin-top: 8px;
-}
-
-#tabela-alunos {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  min-width: 750px;
-}
-
-#tabela-alunos th,
-#tabela-alunos td {
-  border: 1px solid var(--cor-borda);
-  padding: 8px 10px;
-  text-align: left;
-}
-
-#tabela-alunos thead {
-  background: var(--cor-secundaria-clara);
-  font-weight: 600;
-  color: var(--cor-secundaria);
-}
-
-#tabela-alunos tbody tr {
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-#tabela-alunos tbody tr:hover {
-  background: #fff7f0;
-}
-
-/* status cores */
-.status-aprovado {
-  color: #1b5e20;
-  font-weight: 600;
-}
-
-.status-recuperacao {
-  color: #f9a825;
-  font-weight: 600;
-}
-
-.status-reprovado {
-  color: #c62828;
-  font-weight: 600;
-}
-
-.hint {
-  font-size: 0.8rem;
-  color: #555;
-  margin-top: 8px;
-}
-
-/* -----------------------------------------------------------
-   CARDS DE ALUNOS (CELULAR)
------------------------------------------------------------ */
-
-.cards-alunos {
-  display: none; 
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.card-aluno {
-  border-radius: 12px;
-  border: 1px solid var(--cor-borda);
-  padding: 10px 12px;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-aluno:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-}
-
-.card-aluno-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.card-aluno-nome {
-  font-weight: 600;
-}
-
-.card-aluno-tag {
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--cor-secundaria-clara);
-  color: var(--cor-secundaria);
-}
-
-.card-aluno-body {
-  font-size: 0.85rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px 10px;
-}
-
-/* -----------------------------------------------------------
-   GAMIFICAÇÃO
------------------------------------------------------------ */
-
-#aluno-selecionado,
-#info-media {
-  margin-bottom: 4px;
-  font-size: 0.95rem;
-}
-
-.desafio {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid var(--cor-borda);
-}
-
-.pergunta-desafio {
-  margin: 8px 0;
-  font-weight: 600;
-}
-
-.feedback {
-  margin-top: 8px;
-  font-size: 0.9rem;
-}
-
-.feedback.ok {
-  color: #1b5e20;
-}
-
-.feedback.erro {
-  color: #c62828;
-}
-
-/* -----------------------------------------------------------
-   modo escuro
------------------------------------------------------------ */
-
-body.dark {
-  background: #14141f;
-  color: #f5f5f5;
-}
-
-body.dark header {
-  background: linear-gradient(135deg, #ff7a1a, #1f4fb0);
-}
-
-body.dark .card {
-  background: #1f1f2b;
-  border-color: #33334a;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
-}
-
-body.dark .form-group input,
-body.dark .form-group select {
-  background: #26263a;
-  color: #f5f5f5;
-  border-color: #3b3b55;
-}
-
-body.dark .table-wrapper {
-  border-color: #3b3b55;
-}
-
-body.dark #tabela-alunos th,
-body.dark #tabela-alunos td {
-  border-color: #3b3b55;
-}
-
-body.dark #tabela-alunos thead {
-  background: #26263a;
-  color: #f5f5f5;
-}
-
-body.dark .card-aluno {
-  background: #26263a;
-  border-color: #3b3b55;
-}
-
-body.dark .btn-primary {
-  background: #ff8a33;
-}
-
-body.dark .btn-primary:hover {
-  background: #ff7a1a;
-}
-
-body.dark .btn-secondary {
-  background: #1f6fff;
-}
-
-body.dark .btn-secondary:hover {
-  background: #1552c0;
-}
-
-/* -----------------------------------------------------------
-   RESPONSIVIDADE
------------------------------------------------------------ */
-
-@media (min-width: 600px) {
-  .container {
-    padding: 20px;
-  }
-
-  .form-inline {
-    flex-direction: row;
-  }
-
-  .filtros {
-    flex-direction: row;
-  }
-}
-
-@media (min-width: 900px) {
-  .container {
-    display: grid;
-    grid-template-columns: 1.1fr 1.9fr;
-    gap: 20px;
-  }
-
-  #sec-form {
-    grid-column: 1;
-  }
-
-  #sec-listagem {
-    grid-column: 2;
-  }
-
-  #sec-gamificacao {
-    grid-column: 2;
-  }
-
-  .cards-alunos {
-    display: none;
-  }
-
-  .table-wrapper {
-    display: block;
-  }
-}
-
-@media (max-width: 899px) {
-  .table-wrapper {
-    display: none;
-  }
-
-  .cards-alunos {
-    display: flex;
-  }
-}
-
-/* estender central de sesafios para ocupar toda a largura no desktop */
-@media (min-width: 900px) {
-  .container {
-    display: grid;
-    grid-template-columns: 1.1fr 1.9fr;
-    grid-template-areas:
-      "form listagem"
-      "desafios desafios";
-    gap: 20px;
-  }
-
-  #sec-form {
-    grid-area: form;
-  }
-
-  #sec-listagem {
-    grid-area: listagem;
-  }
-
-  #sec-gamificacao {
-
-/* MOBILE — tudo empilhado */
-@media (max-width: 899px) {
-  .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 18px;
-  }
-
-  /* tabela some no mobile */
-  .table-wrapper {
-    display: none !important;
-  }
-
-  /* cards aparecem no mobile */
-  .cards-alunos {
-    display: flex !important;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* impede rolagem horizontal */
-  body, html {
-    overflow-x: hidden !important;
-  }
-}
-
-    grid-area: desafios;
-  }
-
-/* ============================
-   MOBILE — até 899px
-   ============================ */
-@media (max-width: 899px) {
-
-  /* força layout em coluna */
-  .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 18px;
-  }
-
-  /* tabela some */
-  .table-wrapper {
-    display: none !important;
-  }
-
-  /* cards aparecem */
-  .cards-alunos {
-    display: flex !important;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* impede rolagem horizontal */
-  html, body {
-    overflow-x: hidden !important;
-  }
-}
-
-/* ============================
-   DESKTOP — a partir de 900px
-   ============================ */
-@media (min-width: 900px) {
-
-  .container {
-    display: grid !important;
-    grid-template-columns: 1.1fr 1.9fr;
-    gap: 20px;
-  }
-
-  #sec-form {
-    grid-column: 1;
-  }
-
-  #sec-listagem {
-    grid-column: 2;
-  }
-
-  #sec-gamificacao {
-    grid-column: 2;
-  }
-
-  /* cards somem */
-  .cards-alunos {
-    display: none !important;
-  }
-
-  /* tabela aparece */
-  .table-wrapper {
-    display: block !important;
-  }
-}
+  padding
