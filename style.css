@@ -475,5 +475,32 @@ body.dark .btn-secondary:hover {
   }
 
   #sec-gamificacao {
+
+/* MOBILE — tudo empilhado */
+@media (max-width: 899px) {
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px;
+  }
+
+  /* tabela some no mobile */
+  .table-wrapper {
+    display: none !important;
+  }
+
+  /* cards aparecem no mobile */
+  .cards-alunos {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* impede rolagem horizontal */
+  body, html {
+    overflow-x: hidden !important;
+  }
+}
+
     grid-area: desafios;
   }
