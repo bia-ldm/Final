@@ -1,6 +1,3 @@
-/* -----------------------------------------------------------
-   RESET E BASE
------------------------------------------------------------ */
 
 * {
   box-sizing: border-box;
@@ -84,4 +81,320 @@ header h1 {
 .card {
   background: var(--cor-card);
   border-radius: 16px;
-  padding
+  padding: 20px;
+  border: 1px solid var(--cor-borda);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-secundaria);
+}
+
+/* -----------------------------------------------------------
+   FORMULÁRIO
+----------------------------------------------------------- */
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  font-size: 0.95rem;
+}
+
+.form-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-primary {
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: none;
+  background: var(--cor-primaria);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--cor-primaria-escura);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--cor-secundaria);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------------
+   ALERTA
+----------------------------------------------------------- */
+
+.alert {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ffe6e6;
+  color: #b71c1c;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* -----------------------------------------------------------
+   LISTAGEM — TABELA (DESKTOP)
+----------------------------------------------------------- */
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--cor-borda);
+}
+
+#tabela-alunos {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+#tabela-alunos th,
+#tabela-alunos td {
+  border: 1px solid var(--cor-borda);
+  padding: 10px;
+  text-align: left;
+}
+
+#tabela-alunos thead {
+  background: var(--cor-secundaria-clara);
+  color: var(--cor-secundaria);
+  font-weight: 600;
+}
+
+#tabela-alunos tbody tr {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#tabela-alunos tbody tr:hover {
+  background: #fff7f0;
+}
+
+/* status cores */
+.status-aprovado {
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+.status-recuperacao {
+  color: #f9a825;
+  font-weight: 600;
+}
+
+.status-reprovado {
+  color: #c62828;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------
+   LISTAGEM — CARDS (MOBILE)
+----------------------------------------------------------- */
+
+.cards-alunos {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-aluno {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--cor-borda);
+  padding: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.card-aluno:hover {
+  transform: translateY(-3px);
+}
+
+.card-aluno-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.card-aluno-nome {
+  font-weight: 600;
+}
+
+.card-aluno-tag {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+/* -----------------------------------------------------------
+   GAMIFICAÇÃO
+----------------------------------------------------------- */
+
+.desafio {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.feedback {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.feedback.ok {
+  color: #1b5e20;
+}
+
+.feedback.erro {
+  color: #c62828;
+}
+
+#btn-novo-desafio {
+  display: none;
+}
+
+#btn-novo-desafio.show {
+  display: block !important;
+}
+
+/* -----------------------------------------------------------
+   DARK MODE
+----------------------------------------------------------- */
+
+body.dark {
+  background: #14141f;
+  color: #f5f5f5;
+}
+
+body.dark .card {
+  background: #1f1f2b;
+  border-color: #33334a;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .form-group input,
+body.dark .form-group select {
+  background: #26263a;
+  color: #fff;
+  border-color: #3b3b55;
+}
+
+body.dark #tabela-alunos thead {
+  background: #26263a;
+  color: #fff;
+}
+
+body.dark .card-aluno {
+  background: #26263a;
+  border-color: #3b3b55;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVIDADE — MOBILE
+----------------------------------------------------------- */
+
+@media (max-width: 899px) {
+
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px;
+  }
+
+  .table-wrapper {
+    display: none !important;
+  }
+
+  .cards-alunos {
+    display: flex !important;
+  }
+
+  html, body {
+    overflow-x: hidden !important;
+  }
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVIDADE — DESKTOP
+----------------------------------------------------------- */
+
+@media (min-width: 900px) {
+
+  .container {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1.9fr;
+    grid-template-areas:
+      "form listagem"
+      "desafios desafios";
+    gap: 20px;
+  }
+
+  #sec-form {
+    grid-area: form;
+  }
+
+  #sec-listagem {
+    grid-area: listagem;
+  }
+
+  #sec-gamificacao {
+    grid-area: desafios;
+  }
+
+  .cards-alunos {
+    display: none !important;
+  }
+
+  .table-wrapper {
+    display: block !important;
+  }
+}
