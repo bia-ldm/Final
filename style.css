@@ -503,4 +503,40 @@ body.dark .btn-secondary:hover {
     overflow-x: hidden !important;
   }
 }
+/* DESKTOP — grid */
+@media (min-width: 900px) {
+  .container {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap: 20px;
+  }
+
+  #sec-form {
+    grid-column: 1;
+  }
+
+  #sec-listagem {
+    grid-column: 2;
+  }
+
+  #sec-gamificacao {
+    grid-column: 2;
+  }
+
+  /* cards somem no desktop */
+  .cards-alunos {
+    display: none !important;
+  }
+
+  /* tabela aparece no desktop */
+  .table-wrapper {
+    display: block !important;
+  }
+}
+* {
+  max-width: 100%;
+}
+.card, section, form, input, button {
+  max-width: 100%;
+}
 
