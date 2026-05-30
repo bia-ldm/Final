@@ -1,44 +1,78 @@
-/* -----------------------------------------------------------
-   RESET E BASE
------------------------------------------------------------ */
+
 
 * {
   box-sizing: border-box;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --cor-primaria: #ff7a1a; /* laranja vibrante */
+  --cor-primaria-escura: #e0660f;
+  --cor-secundaria: #1f6fff; /* azul forte */
+  --cor-secundaria-clara: #e3edff;
+  --cor-card: #ffffff;
+  --cor-borda: #e0e0f0;
+  --cor-fundo: #f5f6ff;
+  --cor-texto: #222;
+}
+
 body {
   margin: 0;
-  background: #eef1f7;
-  color: #222;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
 }
 
-/* -----------------------------------------------------------
-   HEADER
------------------------------------------------------------ */
+
 
 header {
-  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
   color: #fff;
-  padding: 20px 24px;
-  text-align: center;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header h1 {
+.header-left h1 {
   margin: 0;
-  font-size: 1.7rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.btn-icon {
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* -----------------------------------------------------------
-   LAYOUT PRINCIPAL
+   LAYOUT MOBILE-FIRST
 ----------------------------------------------------------- */
 
 .container {
-  display: grid;
-  grid-template-columns: 1.1fr 1.9fr;
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
 }
 
 /* -----------------------------------------------------------
@@ -46,23 +80,25 @@ header h1 {
 ----------------------------------------------------------- */
 
 .card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
+  background: var(--cor-card);
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--cor-borda);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 h2 {
   margin-top: 0;
   margin-bottom: 14px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cor-secundaria);
 }
 
 /* -----------------------------------------------------------
@@ -85,40 +121,59 @@ h2 {
 .form-group select {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--cor-borda);
   font-size: 0.95rem;
+  background: #fff;
 }
 
 .form-inline {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-button {
+.btn-primary {
   padding: 10px 16px;
-  border-radius: 8px;
+  border-radius: 999px;
   border: none;
-  background: #3f51b5;
+  background: var(--cor-primaria);
   color: #fff;
   cursor: pointer;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-top: 10px;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-button:hover {
-  background: #303f9f;
+.btn-primary:hover {
+  background: var(--cor-primaria-escura);
+  transform: translateY(-1px);
 }
 
-/* -----------------------------------------------------------
-   ALERTA DE ERRO
------------------------------------------------------------ */
+.btn-secondary {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--cor-secundaria);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: #1552c0;
+  transform: translateY(-1px);
+}
+
 
 .alert {
   margin: 10px 0;
   padding: 10px;
   border-radius: 8px;
-  background: #ffebee;
+  background: #ffe6e6;
   color: #b71c1c;
   font-size: 0.9rem;
 }
@@ -128,51 +183,146 @@ button:hover {
 }
 
 /* -----------------------------------------------------------
-   TABELA
+   FILTROS E TABELA
 ----------------------------------------------------------- */
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
 .table-wrapper {
   overflow-x: auto;
   border-radius: 10px;
-  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--cor-borda);
+  margin-top: 8px;
 }
 
 #tabela-alunos {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
-  min-width: 700px; /* força rolagem no mobile */
+  min-width: 750px;
 }
 
 #tabela-alunos th,
 #tabela-alunos td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid var(--cor-borda);
+  padding: 8px 10px;
   text-align: left;
 }
 
 #tabela-alunos thead {
-  background: #e8eaf6;
+  background: var(--cor-secundaria-clara);
   font-weight: 600;
+  color: var(--cor-secundaria);
 }
 
 #tabela-alunos tbody tr {
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 #tabela-alunos tbody tr:hover {
-  background: #e3f2fd;
+  background: #fff7f0;
+}
+
+/* status cores */
+.status-aprovado {
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+.status-recuperacao {
+  color: #f9a825;
+  font-weight: 600;
+}
+
+.status-reprovado {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* -----------------------------------------------------------
+   CARDS DE ALUNOS (CELULAR)
+----------------------------------------------------------- */
+
+.cards-alunos {
+  display: none; 
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-aluno {
+  border-radius: 12px;
+  border: 1px solid var(--cor-borda);
+  padding: 10px 12px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-aluno:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card-aluno-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.card-aluno-nome {
+  font-weight: 600;
+}
+
+.card-aluno-tag {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cor-secundaria-clara);
+  color: var(--cor-secundaria);
+}
+
+.card-aluno-body {
+  font-size: 0.85rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
 }
 
 /* -----------------------------------------------------------
    GAMIFICAÇÃO
 ----------------------------------------------------------- */
 
+#aluno-selecionado,
+#info-media {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
 .desafio {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid #ddd;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.pergunta-desafio {
+  margin: 8px 0;
+  font-weight: 600;
 }
 
 .feedback {
@@ -185,46 +335,146 @@ button:hover {
 }
 
 .feedback.erro {
-  color: #b71c1c;
+  color: #c62828;
 }
 
 /* -----------------------------------------------------------
-   RESPONSIVIDADE — CELULARES PEQUENOS
+   modo escuro
 ----------------------------------------------------------- */
 
-@media (max-width: 900px) {
+body.dark {
+  background: #14141f;
+  color: #f5f5f5;
+}
 
+body.dark header {
+  background: linear-gradient(135deg, #ff7a1a, #1f4fb0);
+}
+
+body.dark .card {
+  background: #1f1f2b;
+  border-color: #33334a;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .form-group input,
+body.dark .form-group select {
+  background: #26263a;
+  color: #f5f5f5;
+  border-color: #3b3b55;
+}
+
+body.dark .table-wrapper {
+  border-color: #3b3b55;
+}
+
+body.dark #tabela-alunos th,
+body.dark #tabela-alunos td {
+  border-color: #3b3b55;
+}
+
+body.dark #tabela-alunos thead {
+  background: #26263a;
+  color: #f5f5f5;
+}
+
+body.dark .card-aluno {
+  background: #26263a;
+  border-color: #3b3b55;
+}
+
+body.dark .btn-primary {
+  background: #ff8a33;
+}
+
+body.dark .btn-primary:hover {
+  background: #ff7a1a;
+}
+
+body.dark .btn-secondary {
+  background: #1f6fff;
+}
+
+body.dark .btn-secondary:hover {
+  background: #1552c0;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVIDADE
+----------------------------------------------------------- */
+
+@media (min-width: 600px) {
   .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px;
-    padding: 14px;
-  }
-
-  /* ZERA QUALQUER CONFIGURAÇÃO DE GRID */
-  .container > * {
-    grid-column: auto !important;
-    grid-row: auto !important;
-  }
-
-  #sec-form {
-    order: 1;
-  }
-
-  #sec-listagem {
-    order: 2;
-  }
-
-  #sec-gamificacao {
-    order: 3;
+    padding: 20px;
   }
 
   .form-inline {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .filtros {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap: 20px;
+  }
+
+  #sec-form {
+    grid-column: 1;
+  }
+
+  #sec-listagem {
+    grid-column: 2;
+  }
+
+  #sec-gamificacao {
+    grid-column: 2;
+  }
+
+  .cards-alunos {
+    display: none;
   }
 
   .table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    display: block;
+  }
+}
+
+@media (max-width: 899px) {
+  .table-wrapper {
+    display: none;
+  }
+
+  .cards-alunos {
+    display: flex;
+  }
+}
+
+/* estender central de sesafios para ocupar toda a largura no desktop */
+@media (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    grid-template-areas:
+      "form listagem"
+      "desafios desafios";
+    gap: 20px;
+  }
+
+  #sec-form {
+    grid-area: form;
+  }
+
+  #sec-listagem {
+    grid-area: listagem;
+  }
+
+  #sec-gamificacao {
+    grid-area: desafios;
   }
 }
